@@ -11,7 +11,7 @@ use std::thread;
 use crossbeam::channel::{Receiver, Sender};
 
 use emacs::bindings::{
-    build_string, intern_c_string, make_string_from_utf8, make_lisp_ptr, Ffuncall,
+    build_string, intern_c_string, make_string_from_utf8, make_user_ptr, Ffuncall,
     Fmake_pipe_process, Fplist_get, Fplist_put, Fprocess_plist, Fset_process_plist, Fuser_ptrp,
     XUSER_PTR,
 };

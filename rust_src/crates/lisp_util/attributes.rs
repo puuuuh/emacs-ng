@@ -93,7 +93,7 @@ macro_rules! export_lisp_fns {
 	    unsafe {
 		$(
 		    $(#[$($meta),*])* emacs::bindings::defsubr(
-			concat_idents!(S, $f).as_ptr() as *mut emacs::bindings::Aligned_Lisp_Subr
+			    ::lisp_util::paste! { [<S $f>] }.as_ptr() as *mut emacs::bindings::Aligned_Lisp_Subr
 		    );
 		)+
 	    }
