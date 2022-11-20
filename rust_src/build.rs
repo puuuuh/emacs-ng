@@ -431,6 +431,7 @@ fn generate_crate_c_export_file(
 /// that runs the crates *_init_syms functions.
 fn generate_include_files() -> Result<(), BuildError> {
     let out_path: PathBuf = [&env_var("OUT_DIR")].iter().collect();
+    panic!("{}", out_path.display());
     let mut out_file = File::create(out_path.join("c_exports.rs"))?;
 
     // Add main rust_init_syms function to the main c_exports file
@@ -441,7 +442,6 @@ fn generate_include_files() -> Result<(), BuildError> {
 
     // generates include files for the crates from the directory "crates"
     let crates: PathBuf = [&env_var("CARGO_MANIFEST_DIR"), "crates"].iter().collect();
-    panic!("{}", crates.display());
 
     // Iterate crates path and generate include files
     for entry in fs::read_dir(crates).unwrap() {
@@ -583,7 +583,7 @@ fn main() {
     if let Err(e) = generate_include_files() {
         match e {
             BuildError::IOError(msg) => {
-                eprintln!("{}", msg);
+                panic!("{}", msg);
                 process::exit(3);
             }
             BuildError::Lint(msg) => {
