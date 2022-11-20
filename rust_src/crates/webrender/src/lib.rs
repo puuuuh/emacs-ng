@@ -1,4 +1,3 @@
-#![feature(concat_idents)]
 #![allow(non_upper_case_globals)]
 
 #[macro_use]
