@@ -587,9 +587,12 @@ fn main() {
         match e {
             BuildError::IOError(msg) => {
                 eprintln!("{}", msg);
+                panic!();
                 process::exit(3);
             }
             BuildError::Lint(msg) => {
+                eprintln!("{}", msg);
+                panic!();
                 msg.fail(1);
             }
         }
