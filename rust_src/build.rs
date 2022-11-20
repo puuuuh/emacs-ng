@@ -442,16 +442,13 @@ fn generate_include_files() -> Result<(), BuildError> {
     // generates include files for the crates from the directory "crates"
     let crates: PathBuf = [&env_var("CARGO_MANIFEST_DIR"), "crates"].iter().collect();
 
-    eprintln!("{}", crates.display());
     // Iterate crates path and generate include files
     for entry in fs::read_dir(crates).unwrap() {
         let crate_path = entry?.path();
-        eprintln!("+{}", crate_path.display());
 
         if build_ignored_crates(&crate_path) {
             continue;
         };
-        eprintln!("-{}", crate_path.display());
         generate_crate_exports(&crate_path)?;
         let crate_name = path_as_str(crate_path.file_name()).to_string();
 
@@ -461,7 +458,6 @@ fn generate_include_files() -> Result<(), BuildError> {
     }
 
     write!(out_file, "}}\n")?;
-    panic!();
 
     Ok(())
 }
