@@ -20,7 +20,7 @@ macro_rules! fail_with_msg {
     ($code:expr, $modname:expr, $lineno:expr, $($arg:expr),*) => {{
         eprintln!("In {} on line {}", $modname, $lineno);
         eprintln!($($arg),*);
-        process::exit($code);
+        panic!();
     }};
 }
 
@@ -591,8 +591,6 @@ fn main() {
                 process::exit(3);
             }
             BuildError::Lint(msg) => {
-                eprintln!("{}", msg);
-                panic!();
                 msg.fail(1);
             }
         }
