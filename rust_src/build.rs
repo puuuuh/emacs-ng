@@ -441,6 +441,7 @@ fn generate_include_files() -> Result<(), BuildError> {
 
     // generates include files for the crates from the directory "crates"
     let crates: PathBuf = [&env_var("CARGO_MANIFEST_DIR"), "crates"].iter().collect();
+    dbg!(&crates);
 
     // Iterate crates path and generate include files
     for entry in fs::read_dir(crates).unwrap() {
