@@ -432,6 +432,7 @@ fn generate_crate_c_export_file(
 fn generate_include_files() -> Result<(), BuildError> {
     let out_path: PathBuf = [&env_var("OUT_DIR")].iter().collect();
     eprintln!("{}", out_path.display());
+    panic!();
     let mut out_file = File::create(out_path.join("c_exports.rs"))?;
 
     // Add main rust_init_syms function to the main c_exports file
