@@ -81,4 +81,4 @@ ng-module = ["ng_module"]
 glyph-debug = []
 
 [patch.crates-io]
-wgpu-core = { git = "https://github.com/gfx-rs/wgpu/", ref = "39fafde2b6b3e013d91d8f3be60cfc0946e5edfe" }
+wgpu-core = { git = "https://github.com/gfx-rs/wgpu/", rev = "39fafde2b6b3e013d91d8f3be60cfc0946e5edfe" }
