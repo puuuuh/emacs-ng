@@ -79,3 +79,6 @@ javascript = ["js"]
 ng-module = ["ng_module"]
 # Enable glyphs debugging code.
 glyph-debug = []
+
+[patch.crates-io]
+wgpu-core = { git = "https://github.com/gfx-rs/wgpu/", ref = "39fafde2b6b3e013d91d8f3be60cfc0946e5edfe" }
