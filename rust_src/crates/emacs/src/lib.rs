@@ -5,16 +5,10 @@
 #![allow(non_snake_case)]
 #![allow(non_camel_case_types, non_snake_case, non_upper_case_globals)]
 // we need this to be able to inclde FieldOffsets in C structs
-#![allow(improper_ctypes)]
+#![allow(improper_ctypes, unused_unsafe)]
 // we have a bunch of unused code during testing at the moment, somehow
 #![cfg_attr(test, allow(unused))]
 #![cfg_attr(feature = "strict", deny(warnings))]
-#![feature(concat_idents)]
-#![feature(never_type)]
-#![feature(stmt_expr_attributes)]
-#![feature(untagged_unions)]
-#![feature(maybe_uninit_extra)]
-#![feature(async_closure)]
 
 #[rustfmt::skip]
 pub mod bindings;

@@ -22,7 +22,6 @@ macro_rules! xsignal {
         }
     };
     ($symbol:expr, $($tt:tt)+) => {
-        #[allow(unused_unsafe)]
         unsafe {
             $crate::eval::signal_rust($symbol, list!($($tt)+));
         }
